@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #87ceeb;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .game-container {
@@ -14,28 +15,75 @@ body {
     height: 600px;
     background-color: #add8e6;
     border: 2px solid #000;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #2f4f4f;
+    z-index: 100;
+    text-shadow: 1px 10x 2px white;
 }
 
 .whale {
    position: absolute;
    bottom: 50px;
-   left: 50px;
-   width: 60px;
-   height: 40px;
-   background-color: #1e90ff;
+   left: 100px;
+   width: 80px;
+   height: 50px;
+   background: #1e90ff;
    border-radius: 50%;
+   transition: transform 0.2s;
 
+}
+
+.whale.flap {
+    transform: rotate(-30deg);
 }
 
 .obstacle {
     position: absolute;
+    right: -100px;
+    width: 100px;
+    background-color: #556B2F;
+    border-left: 3px solid #2f4f4f;
+}
+
+.obstacle.top {
     top: 0;
-    right: 0px;
-    width: 40px;
-    height: 200px;
-    background-color: #8b4513;
-    animation: moveObstacle 3s linear infinite;
+}
+
+.obstacle.bottom {
+    bottom: 0;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+
+}
+
+.restart-btn {
+    background: #1e90ff;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 @keyframes moveObstacle {
